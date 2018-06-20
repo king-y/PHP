@@ -1,0 +1,55 @@
+<!--
+*
+*
+* @Author: wyy
+* @Date:   2018-06-19 08:49:25
+* @Email:  2752154874@qq.com
+* @Last Modified by:   wyy
+* @Last Modified time: 2018-06-19 09:05:10
+*
+*
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>图片轮播代码</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+</head>
+<style type="text/css">
+    body{max-width: 640px;margin: 0 auto;}
+    #lunbo ul li{width:100%;list-style: none;width:640px; height:250px;background-color: #f00;text-align: center;}
+    #lunbo ul li:not(:first-child){display: none;}
+    #lunbo a {width: 40px; height: 40px; background: #000; border: 5px solid #fff; position: absolute; top: 175px;  text-align: center; text-decoration: none; line-height: 40px; color:#fff; font-size: 30px; font-weight: bold; filter: alpha(opacity:80);opacity: 0.4;}
+	#lunbo a:hover { filter: alpha(opacity:80);opacity: 0.9; }
+	#prev { left: 10px; }
+	#next {right: 10px;}
+
+</style>
+
+<body>
+<div id="lunbo">
+	<a href="javascript:;" id="prev"><</a>
+	<a href="javascript:;" id="next">></a>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //因为使用了document，所以js需要放在需要执行的代码下面生效才能生效
+    var li=document.getElementById('lunbo').getElementsByTagName("li");
+    var num=0;
+    var len=li.length;
+
+    setInterval(function(){
+        li[num].style.display="none";
+        num=++num==len?0:num;
+        li[num].style.display="inline-block";
+
+    },3000);//切换时间
+</script>
+</body>
+</html>
